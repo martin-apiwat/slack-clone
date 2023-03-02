@@ -1,6 +1,7 @@
 .main-container {
   background-color: blue;
   display: flex;
+  height: 100vh;
 }
 
 .sidebar {

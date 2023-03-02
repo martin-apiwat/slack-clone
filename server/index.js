@@ -26,7 +26,7 @@ const Channel = mongoose.model("channels", channelsSchema);
 
 app.get("/channels", async (req, res) => {
   const channels = await Channel.find();
-  res.send([channels]);
+  res.send(channels);
 });
 
 app.listen(3000, async () => {
