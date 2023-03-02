@@ -1,0 +1,15 @@
+.main-container {
+  background-color: blue;
+  display: flex;
+}
+
+.sidebar {
+  background-color: greenyellow;
+  width: 100%;
+  max-width: 300px;
+}
+
+.chat-section {
+  background-color: orange;
+  width: 100%;
+}
