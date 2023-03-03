@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
+import { Hash } from "react-feather";
 
 export default function App() {
   const [channels, setChannels] = useState(null);
@@ -17,8 +18,14 @@ export default function App() {
   return (
     <div className="main-container">
       <div className="sidebar">
+        <h1 className="sidebar-header">Martins Slack</h1>
         {channels
-          ? channels.map((channel) => <div>{channel.name}</div>)
+          ? channels.map((channel) => (
+              <div className="sidebar-row">
+                <Hash />
+                {channel.name}
+              </div>
+            ))
           : "loading..."}
       </div>
       <div className="chat-section">chat-section</div>
