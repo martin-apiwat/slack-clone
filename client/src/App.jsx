@@ -16,7 +16,7 @@ export default function App() {
         <Route
           path="/:id"
           element={
-            <div className="chat-section">
+            <div>
               <Channel />
             </div>
           }
