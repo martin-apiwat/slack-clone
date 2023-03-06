@@ -11,9 +11,16 @@ export default function App() {
       <Routes>
         <Route
           path="/"
-          element={<div className="chat-selection">chat selection</div>}
+          element={<div className="chat-section">chat section</div>}
         />
-        <Route path="/:id" element={<Channel />} />
+        <Route
+          path="/:id"
+          element={
+            <div className="chat-section">
+              <Channel />
+            </div>
+          }
+        />
       </Routes>
     </div>
   );
