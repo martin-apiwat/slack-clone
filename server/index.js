@@ -57,7 +57,7 @@ const messageSchema = new mongoose.Schema(
 const Message = mongoose.model("messages", messageSchema);
 
 app.get("/channels/:id", async (req, res) => {
-  const messages = await Message.find();
+  const messages = await Message.find({ channelId: req.params.id });
   res.send(messages);
 });
 
