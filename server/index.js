@@ -5,6 +5,7 @@ import cors from "cors";
 const app = express();
 
 app.use(cors({ origin: "*" }));
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("Hej");
@@ -49,6 +50,7 @@ const messageSchema = new mongoose.Schema(
     channelId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "channels",
+      required: true,
     },
   },
   { timestamps: true }
@@ -59,6 +61,18 @@ const Message = mongoose.model("messages", messageSchema);
 app.get("/channels/:id", async (req, res) => {
   const messages = await Message.find({ channelId: req.params.id });
   res.send(messages);
+});
+
+app.post("/channels/:id", async (req, res) => {
+  await Message.create({
+    text: req.body.text,
+    user: {
+      name: req.body.username,
+      image: "https://api.dicebear.com/5.x/micah/svg?seed=" + req.body.username,
+    },
+    channelId: req.params.id,
+  });
+  res.send("OK");
 });
 
 app.listen(3000, async () => {
