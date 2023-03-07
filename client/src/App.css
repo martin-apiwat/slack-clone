@@ -61,5 +61,25 @@
 }
 
 .send-message-box {
-  background-color: aliceblue;
+  height: 90px;
+  padding: 20px;
+  display: flex;
+  margin: 10px 10px;
+  background-color: hsl(213deg 11% 15%);
+  border: 1px solid hsl(126deg 1% 34%);
+  border-radius: 10px;
+}
+
+.send-message-box input {
+  border: none;
+  background: transparent;
+  color: var(--text);
+  width: 100%;
+}
+
+.send-message-box button {
+  border: none;
+  background: transparent;
+  border-left: 1px solid hsl(126deg 1% 34%);
+  color: var(--text);
 }

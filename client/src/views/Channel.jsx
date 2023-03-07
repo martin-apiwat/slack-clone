@@ -35,6 +35,7 @@ export default function Channel({ username }) {
       <div className="send-message-box">
         <input
           type="text"
+          placeholder="Your message..."
           onChange={(e) => setText(e.target.value)}
           value={text}
         />
