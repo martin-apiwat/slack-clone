@@ -35,7 +35,31 @@
   background-color: var(--bg-dimmed);
 }
 
+.sidebar-row:focus {
+  background-color: var(--bg-selected);
+  color: white;
+}
+
 .chat-section {
   width: 100%;
   padding: 20px;
+}
+
+.channel-container {
+  height: 100vh;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.channel-messages-container {
+  flex: 1;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.send-message-box {
+  background-color: aliceblue;
 }

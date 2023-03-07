@@ -7,28 +7,37 @@ export default function Channel({ username }) {
   const { id } = useParams();
   const [text, setText] = useState("");
 
-  const { data: messages } = useQuery({
+  const { data, refetch } = useQuery({
     queryKey: ["messages", id],
     queryFn: () =>
       fetch("http://localhost:3000/channels/" + id).then((data) => data.json()),
   });
 
   async function sendMessage() {
+    setText("");
     await fetch("http://localhost:3000/channels/" + id, {
       method: "POST",
       body: JSON.stringify({ text: text, username: username }),
       headers: { "Content-Type": "application/json" },
     });
+    refetch();
   }
 
   return (
-    <div>
-      {messages
-        ? messages.map((message) => <Message message={message} />)
-        : "Loading..."}
+    <div className="channel-container">
+      <div>{data ? <h2>{data.channel.name}</h2> : "loading..."}</div>
+      <div className="channel-messages-container">
+        {data
+          ? data.messages.map((message) => <Message message={message} />)
+          : "Loading..."}
+      </div>
 
-      <div>
-        <input type="text" onChange={(e) => setText(e.target.value)} />
+      <div className="send-message-box">
+        <input
+          type="text"
+          onChange={(e) => setText(e.target.value)}
+          value={text}
+        />
         <button onClick={() => sendMessage()}>Send message</button>
       </div>
     </div>

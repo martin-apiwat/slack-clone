@@ -9,6 +9,7 @@
 :root {
   --bg: #1a1d21;
   --bg-dimmed: #2d3136;
+  --bg-selected: hsl(210deg 62% 39%);
   --text: #d1d2d3;
   --text-dimmed: hsla(225, 26%, 88%, 0.7);
 }
