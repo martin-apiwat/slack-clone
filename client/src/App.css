@@ -3,6 +3,11 @@
   height: 100vh;
 }
 
+.channel-container h2 {
+  padding: 5px 10px;
+  font-size: 20px;
+}
+
 .sidebar {
   width: 100%;
   max-width: 300px;
@@ -35,9 +40,13 @@
   background-color: var(--bg-dimmed);
 }
 
-.sidebar-row:focus {
+.sidebar-row-active {
   background-color: var(--bg-selected);
   color: white;
+}
+
+.sidebar-row-active:hover {
+  background-color: var(--bg-selected);
 }
 
 .chat-section {
@@ -48,7 +57,6 @@
 .channel-container {
   height: 100vh;
   width: 100%;
-
   display: flex;
   flex-direction: column;
 }
@@ -70,11 +78,16 @@
   border-radius: 10px;
 }
 
-.send-message-box input {
+.send-message-box textarea {
   border: none;
   background: transparent;
   color: var(--text);
   width: 100%;
+  resize: none;
+}
+
+.send-message-box textarea:focus {
+  outline: none;
 }
 
 .send-message-box button {
@@ -82,4 +95,8 @@
   background: transparent;
   border-left: 1px solid hsl(126deg 1% 34%);
   color: var(--text);
+}
+
+.send-message-box button svg {
+  width: 40px;
 }

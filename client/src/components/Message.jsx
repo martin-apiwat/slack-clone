@@ -13,7 +13,7 @@ export default function Message({ message }) {
             {new Date(message.createdAt).getMinutes()}
           </p>
         </div>
-        <p>{message.text}</p>
+        <p className="message-text">{message.text}</p>
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import Message from "../components/Message";
 import { useParams } from "react-router-dom";
+import { Send } from "react-feather";
 
 export default function Channel({ username }) {
   const { id } = useParams();
@@ -33,13 +34,15 @@ export default function Channel({ username }) {
       </div>
 
       <div className="send-message-box">
-        <input
-          type="text"
+        <textarea
           placeholder="Your message..."
           onChange={(e) => setText(e.target.value)}
           value={text}
         />
-        <button onClick={() => sendMessage()}>Send message</button>
+        <button onClick={() => sendMessage()}>
+          {" "}
+          <Send />
+        </button>
       </div>
     </div>
   );

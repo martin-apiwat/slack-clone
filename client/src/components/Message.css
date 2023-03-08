@@ -10,3 +10,7 @@
   align-items: baseline;
   margin-bottom: 5px;
 }
+
+.message-text {
+  white-space: pre;
+}
